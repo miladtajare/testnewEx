@@ -21,9 +21,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
 </head>
 <body>
     <div id="app">
+        
+        <div class="text-justify" style="text-align:left !important">
+            @include('sweet::alert')
+        </div>
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -74,6 +84,19 @@
                             </li>
                         @endguest
                     </ul>
+                    @auth
+                    <div class=" dropdown-menu-right" >
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                    @endauth
                 </div>
             </div>
         </nav>
