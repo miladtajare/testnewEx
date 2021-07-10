@@ -37,4 +37,20 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function login(Request $request)
+    {
+        $this->validate($request, [ 'loginData' => 'required', 'password' => 'required', ]);
+
+        $login_type = filter_var($request->input('loginData'), FILTER_VALIDATE_EMAIL ) ? 'email' : 'username';
+	    $request->merge([ $login_type => $request->input('loginData') ]);
+
+        $credentials = [ $login_type => $request['loginData'], 'password' => $request['password'], ];
+
+        if (Auth::attempt($credentials)) { return redirect('/dashboard'); }
+
+        return back();
+    }
+
+
 }
