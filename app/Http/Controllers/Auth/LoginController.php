@@ -56,7 +56,7 @@ class LoginController extends Controller
 	    $request->merge([ $login_type => $request->input('loginData') ]);
         $credentials = [ $login_type => $request['loginData'], 'password' => $request['password'], ];
 
-        if (Auth::attempt($credentials)) { return redirect('/home'); }
+        if (Auth::attempt($credentials)) { return redirect('/Panel'); }
 
         alert()->error('ورودی اشتباه است','خطا');
         return back();
