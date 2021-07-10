@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>پنل مدیریت | صفحه خالی</title>
+  <title>پنل مدیریت |:</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -155,73 +155,7 @@
       <span class="brand-text font-weight-light">پنل مدیریت</span>
     </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div>
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">حسام موسوی</a>
-          </div>
-        </div>
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-dashboard"></i>
-                <p>
-                  داشبوردها
-                  <i class="right fa fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>داشبورد اول</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>داشبورد دوم</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>داشبورد سوم</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-header">متفاوت</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-file"></i>
-                <p>مستندات</p>
-              </a>
-            </li>
-
-
-
-           
-            
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+    @include('includes.dashboard.navbar');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -230,7 +164,6 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>صفحه خالی</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-left">
@@ -242,34 +175,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">عنوان</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          فوتر
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
-    </section>
-    <!-- /.content -->
+    @yield('content')
   </div>
   <!-- /.content-wrapper -->
 

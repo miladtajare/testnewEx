@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\dashboard\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/Panel', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('user', UserController::class);
