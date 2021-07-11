@@ -20,8 +20,19 @@
   <link rel="stylesheet" href="{{asset('dashboard/dist/css/bootstrap-rtl.min.css')}}">
   <!-- template rtl version -->
   <link rel="stylesheet" href="{{asset('dashboard/dist/css/custom-style.css')}}">
+  
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini">
+
+<div class="text-justify" style="text-align:left !important">
+  @include('sweet::alert')
+</div>
+
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -176,6 +187,7 @@
     </section>
 
     @yield('content')
+    
   </div>
   <!-- /.content-wrapper -->
 

@@ -24,7 +24,7 @@
                   </button>
               </div>
               <div class="modal-body">
-                  <form method="post" action="/">
+                  <form method="post" action="/user">
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
@@ -114,8 +114,15 @@
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
-      
+        
     </div>
+    <div class="card-footer d-flex justify-content-center">
+        {{$data['userList']->links("pagination::bootstrap-4")}}
+    </div>
+
+
+
+
     <!-- /.card-footer-->
   </div>
   <!-- /.card -->

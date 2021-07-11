@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,7 +42,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $res_validate = $this->ValidateUser($request);
+        if($res_validate->fails())
+        {
+            $message = '';
+            foreach($res_validate->errors()->all() as $error)
+            { $message .=  $error; }
+
+            alert()->error($message, 'ورودی اشتباه !');
+            return back();
+        }
+
+
+        User::create([
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'userName' => $request->userName,
+            'nationalCode' => $request->nationalCode,
+            'userType' => $request->userType,
+            'email' => $request->email,
+            'password' => Hash::make( $request->nationalCode ),
+        ]);
+        
+        return back();
+        
+        
+        
     }
 
     /**
@@ -88,4 +115,21 @@ class UserController extends Controller
     {
         //
     }
+
+    public function ValidateUser($request)
+    {
+        return $validator = \Validator::make(request()->all(), [
+            'firstName' => 'required|min:2|max:150',
+            'lastName' => 'required|min:2|max:150',
+            'userName' => 'required|min:2|max:150|unique:users',
+            'nationalCode' => 'required|digits:10|unique:users',
+            'email' => 'required|email|unique:users',
+            'userType' => 'required',
+            'password' => 'required',
+        ]);
+    }
+
+
+
+
 }
