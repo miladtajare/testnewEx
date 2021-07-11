@@ -151,6 +151,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'userName'  => 'نام کاربری' , 
+        'firstName'  => 'نام ' , 
+        'lastName'  => 'نام خانوادگی' , 
+        'nationalCode'  => 'کد ملی' , 
+    ],
 
 ];
