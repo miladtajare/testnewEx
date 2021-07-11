@@ -54,7 +54,7 @@
                           <input class="form-control" type="text" name="nationalCode" placeholder="Enter nationalCode" aria-label="nationalCode_participant's ">
                       </div>
 
-                      <select class="form-select form-control" name="userType" aria-label="Default select example">
+                      <select class="form- mt-2 form-control" name="userType" aria-label="Default select example">
                         <option selected>user type select</option>
                         <option value="teacher">teacher</option>
                         <option value="student">student</option>
@@ -104,8 +104,58 @@
             <td class="text-center" > {{ $user->userName }}</td>
             <td class="text-center" > {{ $user->nationalCode }}</td>
             <td class="text-center" > {{ $user->email }}</td>
-            <td class="text-center" > {{ $user->userType }}</td>
-            <td class="text-center bg-light"> </td>
+            <td class="text-center" > {!! $user->user_icon( $user->userType ) !!}</td>
+            <td class="text-center bg-light">
+            
+            
+         
+
+              <i class="fa fa-edit text-primary font-weight-bold" style="cursor: pointer;" data-toggle="modal" data-target="#myModaledituser{{$user->id}}"></i>
+
+              <div class="mt-5 modal fade" id="myModaledituser{{$user->id}}">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/user/{{$user->id}}">
+                            @method('PATCH')
+                            <div class="mt-2 input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">firstName</span>
+                                </div>
+                                <input class="form-control" type="text" name="firstName" value="{{$user->firstName}}" placeholder="Enter firstName" aria-label="firstName's ">
+                            </div>
+
+                            <div class="mt-2 input-group ">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">lastName</span>
+                                </div>
+                                <input class="form-control" type="text" name="lastName" value="{{$user->lastName}}" placeholder="Enter lastName" aria-label="lastName's ">
+                            </div>
+
+                            <select class="form-select form-control mt-3" name="userType" aria-label="Default select example">
+                              <option selected>user type select</option>
+                              <option @if( $user->userType ==  'teacher' ) selected @endif value="teacher">teacher</option>
+                              <option @if( $user->userType ==  'student' ) selected @endif value="student">student</option>
+                              <option @if( $user->userType ==  'manager' ) selected @endif value="manager">manager</option>
+                              <option @if( $user->userType ==  'guest' ) selected @endif value="guest">guest</option>
+                            </select>
+
+                            @csrf
+                            <button type="submit" class="mt-3 btn btn-sm btn-success">ثبت</button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+          
+          
+            </td>
           </tr>
           @endforeach
         </tbody>

@@ -100,9 +100,24 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $res_validate = $this->ValidateUserUpdate($request , $user);
+        if($res_validate->fails())
+        {
+            $message = '';
+            foreach($res_validate->errors()->all() as $error)
+            { $message .=  $error; }
+
+            alert()->error($message, 'ورودی اشتباه !');
+            return back();
+        }
+
+        $user->firstName = $request->firstName;
+        $user->lastName = $request->lastName;
+        $user->userType = $request->userType;
+        $user->save();
+        return back();
     }
 
     /**
@@ -130,6 +145,14 @@ class UserController extends Controller
     }
 
 
+    public function ValidateUserUpdate($request , $user)
+    {
+        return $validator = \Validator::make(request()->all(), [
+            'firstName' => 'required|min:2|max:150',
+            'lastName' => 'required|min:2|max:150',
+            'userType' => 'required',
+        ]);
+    }
 
 
 }

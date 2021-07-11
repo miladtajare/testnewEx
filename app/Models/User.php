@@ -43,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function user_icon($user_type)
+    {
+        if($user_type == 'teacher'){return 'استاد';}
+        if($user_type == 'student'){return 'دانشجو';}
+        if($user_type == 'manager'){return 'مدیر';}
+        if($user_type == 'guest'){return 'مهمان';}
+        return 'هیچ!';
+    }
 }
