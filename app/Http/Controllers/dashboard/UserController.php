@@ -69,11 +69,11 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make( $request->nationalCode ),
         ]);
-        
+
         return back();
-        
-        
-        
+
+
+
     }
 
     /**

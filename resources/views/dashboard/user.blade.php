@@ -16,14 +16,14 @@
         <option value="">همه</option>
       </select>
     </form>
-    
+
     <div class="card-header">
       <h3 class="card-title"> {{ $data['title'] }} </h3>
 
- 
+
 
       <div class="card-tools">
-      
+
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
           اضافه کردن
         </button>
@@ -59,7 +59,7 @@
                           </div>
                           <input class="form-control" type="text" name="userName" placeholder="Enter userName" aria-label="userName_participant's ">
                       </div>
-                      
+
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
                               <span class="input-group-text">nationalCode</span>
@@ -89,8 +89,8 @@
             </div>
           </div>
         </div>
-        
-        
+
+
       </div>
     </div>
     <div class="card-body">
@@ -119,9 +119,9 @@
             <td class="text-center" > {{ $user->email }}</td>
             <td class="text-center" > {!! $user->user_icon( $user->userType ) !!}</td>
             <td class="text-center bg-light">
-            
-            
-         
+
+
+
 
               <i class="fa fa-edit text-primary font-weight-bold" style="cursor: pointer;" data-toggle="modal" data-target="#myModaledituser{{$user->id}}"></i>
 
@@ -165,9 +165,9 @@
                   </div>
                 </div>
               </div>
-        
-          
-          
+
+
+
             </td>
           </tr>
           @endforeach
@@ -177,7 +177,7 @@
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
-        
+
     </div>
     <div class="card-footer d-flex justify-content-center">
         {{$data['userList']->links("pagination::bootstrap-4")}}
@@ -193,5 +193,5 @@
 </section>
 <!-- /.content -->
 
-    
+
 @endsection('content')

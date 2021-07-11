@@ -92,10 +92,6 @@
                     @endif
 
                     @endif
-
-
-
-
                 @else
                     <div class="mt-3 text-center alert-danger rounded ">برای ثبت نام در کلاس باید وارد شوید</div>
                 @endauth
