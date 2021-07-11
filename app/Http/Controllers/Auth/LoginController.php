@@ -46,17 +46,22 @@ class LoginController extends Controller
 
         if( filter_var( $request->input('loginData'), FILTER_VALIDATE_EMAIL ) )
         { $login_type = 'email'; }
-       
-        elseif( $this->passes($request->input('loginData')) == true ) 
+
+        elseif( $this->passes($request->input('loginData')) == true )
         { $login_type = 'nationalCode'; }
-       
+
         else
         { $login_type = 'userName'; }
-        
+
 	    $request->merge([ $login_type => $request->input('loginData') ]);
         $credentials = [ $login_type => $request['loginData'], 'password' => $request['password'], ];
 
-        if (Auth::attempt($credentials)) { return redirect('/Panel'); }
+        if (Auth::attempt($credentials))
+        {
+            if( (Auth::user()->userType == 'teacher') && (Auth::user()->userType == 'manager') )
+            { return redirect('/Panel'); }
+            else{ return redirect('/'); }
+        }
 
         alert()->error('ورودی اشتباه است','خطا');
         return back();

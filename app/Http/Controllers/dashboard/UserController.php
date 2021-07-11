@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 
 class UserController extends Controller
@@ -18,6 +18,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+
+        if (  (! Gate::allows('show-teacher')) && (! Gate::allows('show-manager')) ) { abort(403); }
+
+
         $user_list = new User();
         if( $request->user_Type ) { $user_list = $user_list->where('userType',$request->user_Type); }
         $user_list = $user_list->paginate(10);

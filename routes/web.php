@@ -27,22 +27,26 @@ Auth::routes();
 Route::resource('/', MainController::class );
 
 
-//Panel
-Route::get('/Panel', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group( [ 'middleware' => ['auth','can:show-teacher-manager'] ] ,function(){
 
-//user
-Route::resource('user', UserController::class);
+    //Panel
+    Route::get('/Panel', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//classRoom
-Route::resource('classRoom', ClassRoomController::class);
+    //user
+    Route::resource('user', UserController::class);
 
-//course
-Route::resource('course', CourseController::class);
+    //classRoom
+    Route::resource('classRoom', ClassRoomController::class);
 
-//course
-Route::resource('score', ScoreController::class);
+    //course
+    Route::resource('course', CourseController::class);
+
+    //course
+    Route::resource('score', ScoreController::class);
 
 
-Route::post('/register_student_to_class',[StudentController::class , 'register_student_to_class']);
+    Route::post('/register_student_to_class',[StudentController::class , 'register_student_to_class']);
+
+});
 
 

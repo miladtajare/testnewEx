@@ -29,7 +29,7 @@
 </head>
 <body>
     <div id="app">
-        
+
         <div class="text-justify" style="text-align:left !important">
             @include('sweet::alert')
         </div>

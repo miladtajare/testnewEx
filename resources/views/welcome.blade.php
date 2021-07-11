@@ -30,6 +30,10 @@
                 <div class=" right-0 px-6 py-4 sm:block ">
                     @auth
                         <a href="{{ url('/Panel') }}" class="text-sm text-gray-700 underline"><b class="text-light bg-primary p-2">Dashboard </b></a>
+                        <a class=" me-2 btn btn-warning mr-4" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout') }}" > {{ __('خروج') }}   {{ Auth::user()->userName }} </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline"><b class="text-light">Log in </b></a>
 
@@ -37,6 +41,7 @@
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline"><b class="text-light">Register </b></a>
                         @endif
                     @endauth
+
                 </div>
             @endif
 
