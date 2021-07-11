@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\UserController;
+use App\Http\Controllers\dashboard\ClassRoomController;
+use App\Http\Controllers\dashboard\CourseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
