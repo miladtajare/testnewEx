@@ -1,26 +1,31 @@
 @extends('layouts.dashboard.master')
 @section('content')
+<!-- 
+  title_course	
+  number_course	
+  description_lg_courses	
+  description_sm_courses	
+ -->
+
 
 <!-- Main content -->
 <section class="content">
+  
+  
+  
+  
+  
+  <div class="alert col-12 bg-white text-decoration-none">
+    کلاس های مربوط به دوره : {{ $data['course']->title_course }} |  {{ $data['course']->number_course }} |  {{ $data['course']->description_sm_courses }}
+    <a href="/course" class="btn btn-danger  btn-sm mr-5 text-white text-decoration-none">بازگشت به دوره ها</a>
 
+  </div>
   <!-- Default box -->
   <div class="card">
-    <form>
-      <select class="form-control mt-2 form-control border border-danger"  onchange="this.form.submit()" name="user_Type" aria-label="Default select example">
-        <option selected >فیلتر نوع  کاربر را انتخاب کنید</option>
-        <option value="teacher">استاد</option>
-        <option value="student">دانشجو</option>
-        <option value="manager">مدیر</option>
-        <option value="guest">مهمان</option>
-        <option value="">همه</option>
-      </select>
-    </form>
     
     <div class="card-header">
       <h3 class="card-title"> {{ $data['title'] }} </h3>
 
- 
 
       <div class="card-tools">
       
@@ -37,50 +42,68 @@
                   </button>
               </div>
               <div class="modal-body">
-                  <form method="post" action="/user">
+                  <form method="post" action="/classRoom">
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">firstName</span>
+                              <span class="input-group-text">title_class_room</span>
                           </div>
-                          <input class="form-control" type="text" name="firstName" placeholder="Enter firstName" aria-label="firstName's ">
-                      </div>
-
-                      <div class="mt-2 input-group">
-                          <div class="input-group-append">
-                              <span class="input-group-text">lastName</span>
-                          </div>
-                          <input class="form-control" type="text" name="lastName" placeholder="Enter lastName" aria-label="lastName's ">
-                      </div>
-
-                      <div class="mt-2 input-group">
-                          <div class="input-group-append">
-                              <span class="input-group-text">userName</span>
-                          </div>
-                          <input class="form-control" type="text" name="userName" placeholder="Enter userName" aria-label="userName_participant's ">
+                          <input class="form-control"  type="text" name="title_class_room" placeholder="Enter title_class_room" aria-label="title_class_room's ">
                       </div>
                       
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">nationalCode</span>
+                              <span class="input-group-text">number_class_room</span>
                           </div>
-                          <input class="form-control" type="text" name="nationalCode" placeholder="Enter nationalCode" aria-label="nationalCode_participant's ">
+                          <input class="form-control"  type="text" name="number_class_room" placeholder="Enter number_class_room" aria-label="number_class_room's ">
                       </div>
 
-                      <select class="form- mt-2 form-control" name="userType" aria-label="Default select example">
-                        <option selected>نوع کاربر را انتخاب کنید</option>
-                        <option value="teacher">استاد</option>
-                        <option value="student">دانشجو</option>
-                        <option value="manager">مدیر</option>
-                        <option value="guest">مهمان</option>
-                      </select>
+                      <div class="mb-3 mt-4">
+                        <label for="exampleFormControlTextarea1" class="form-label">description_lg_class_room textarea</label>
+                        <textarea class="form-control" name="description_lg_class_room" id="exampleFormControlTextarea1" rows="3">  </textarea>
+                      </div>
+
+                      <div class="mb-3 mt-4">
+                        <label for="exampleFormControlTextarea1" class="form-label">description_sm_class_room textarea</label>
+                        <textarea class="form-control" name="description_sm_class_room" id="exampleFormControlTextarea1" rows="3"> </textarea>
+                      </div>
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">email</span>
+                              <span class="input-group-text">time_class_room</span>
                           </div>
-                          <input class="form-control" type="text" name="email" placeholder="Enter email" aria-label="email_participant's ">
+                          <input class="form-control"  type="time" name="time_class_room" placeholder="Enter time_class_room" aria-label="time_class_room's ">
                       </div>
+                      
+                      <div class="mt-2 input-group">
+                          <div class="input-group-append">
+                              <span class="input-group-text">start_class_room</span>
+                          </div>
+                          <input class="form-control"  type="date" name="start_class_room" placeholder="Enter start_class_room" aria-label="start_class_room's ">
+                      </div>
+                      
+                      <div class="mt-2 input-group">
+                          <div class="input-group-append">
+                              <span class="input-group-text">end_class_room</span>
+                          </div>
+                          <input class="form-control"  type="date" name="end_class_room" placeholder="Enter end_class_room" aria-label="end_class_room's ">
+                      </div>
+                      
+                      <div class="mt-2 input-group">
+                          <div class="input-group-append">
+                              <span class="input-group-text">date_exam_class_room</span>
+                          </div>
+                          <input class="form-control"  type="date" name="date_exam_class_room" placeholder="Enter date_exam_class_room" aria-label="date_exam_class_room's ">
+                      </div>
+
+                      <div class="mt-2 input-group">
+                          <div class="input-group-append">
+                              <span class="input-group-text">capacity_class_room</span>
+                          </div>
+                          <input class="form-control"  type="text" name="capacity_class_room" placeholder="Enter capacity_class_room" aria-label="capacity_class_room's ">
+                      </div>
+
+                      <input type="text" hidden name="courses_id" value="{{$data['course']->id}}">
 
                       @csrf
                       <button type="submit" class="mt-3 btn btn-sm btn-success">ثبت</button>
@@ -94,38 +117,28 @@
       </div>
     </div>
     <div class="card-body">
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col" class="text-center">id</th>
-            <th scope="col" class="text-center">firstName</th>
-            <th scope="col" class="text-center">lastName</th>
-            <th scope="col" class="text-center">userName</th>
-            <th scope="col" class="text-center">nationalCode</th>
-            <th scope="col" class="text-center">email</th>
-            <th scope="col" class="text-center">userType</th>
-            <th scope="col" class="text-center bg-light">Access</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach( $data['userList'] as $user )
-          <tr>
-            <td class="text-center" > {{ $user->id }}</td>
-            <td class="text-center" > {{ $user->firstName }}</td>
-            <td class="text-center" > {{ $user->lastName }}</td>
-            <td class="text-center" > {{ $user->userName }}</td>
-            <td class="text-center" > {{ $user->nationalCode }}</td>
-            <td class="text-center" > {{ $user->email }}</td>
-            <td class="text-center" > {!! $user->user_icon( $user->userType ) !!}</td>
-            <td class="text-center bg-light">
+      <div class="row">
+      @foreach( $data['class'] as $class )
+        <div class="card col-lg-4 col-md-4 col-sm-12 border-0  p-2 shadow-none" style="">
+          <div class="col-12 shadow-sm border p-3">
+            <span class="badge fs-20 badge-dark mb-2 ms-5"> {{ $class->id }} </span>
+            <div><small>عنوان کلاس : </small> {{$class->title_class_room}} </div>
+            <div><small>شماره کلاس : </small> {{$class->number_class_room}} </div>
+            <div class="mt-1 mb-3"><small>توضح کامل کلاس : </small> {{$class->description_lg_class_room}} </div>
+            <div><small>خلاصه توضیح : </small> {{$class->description_sm_class_room}} </div>
+            <div><small>ساعت کلاس : </small> {{$class->time_class_room}} </div>
+            <div><small>زمان شروع : </small> {{$class->start_class_room}} </div>
+            <div><small>زمان پایان : </small> {{$class->end_class_room}} </div>
+            <div><small>زمان امتحان  : </small> {{$class->date_exam_class_room}} </div>
+            <div><small>ظرفیت کلاس : </small> {{$class->capacity_class_room}} </div>
             
             
-         
+            <div class="col-12 bg-light mt-3 mb-2 d-flex justify-content-end p-2">
 
-              <i class="fa fa-edit text-primary font-weight-bold" style="cursor: pointer;" data-toggle="modal" data-target="#myModaledituser{{$user->id}}"></i>
 
-              <div class="mt-5 modal fade" id="myModaledituser{{$user->id}}">
+              <i class="fa fa-edit text-primary font-weight-bold fs-25" style="cursor: pointer;" data-toggle="modal" data-target="#myModaledituser{{$class->id}}"></i>
+
+              <div class="mt-5 modal fade" id="myModaledituser{{$class->id}}">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -134,29 +147,69 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/user/{{$user->id}}">
+                        <form method="post" action="/classRoom/{{$class->id}}">
                             @method('PATCH')
+                    
                             <div class="mt-2 input-group">
                                 <div class="input-group-append">
-                                    <span class="input-group-text">firstName</span>
+                                    <span class="input-group-text">title_class_room</span>
                                 </div>
-                                <input class="form-control" type="text" name="firstName" value="{{$user->firstName}}" placeholder="Enter firstName" aria-label="firstName's ">
+                                <input class="form-control" value="{{ $class->title_class_room }}" type="text" name="title_class_room" placeholder="Enter title_class_room" aria-label="title_class_room's ">
                             </div>
-
-                            <div class="mt-2 input-group ">
+                            
+                            <div class="mt-2 input-group">
                                 <div class="input-group-append">
-                                    <span class="input-group-text">lastName</span>
+                                    <span class="input-group-text">number_class_room</span>
                                 </div>
-                                <input class="form-control" type="text" name="lastName" value="{{$user->lastName}}" placeholder="Enter lastName" aria-label="lastName's ">
+                                <input class="form-control" value="{{ $class->number_class_room }}" type="text" name="number_class_room" placeholder="Enter number_class_room" aria-label="number_class_room's ">
                             </div>
 
-                            <select class="form-select form-control mt-3" name="userType" aria-label="Default select example">
-                              <option selected>user type select</option>
-                              <option @if( $user->userType ==  'teacher' ) selected @endif value="teacher">teacher</option>
-                              <option @if( $user->userType ==  'student' ) selected @endif value="student">student</option>
-                              <option @if( $user->userType ==  'manager' ) selected @endif value="manager">manager</option>
-                              <option @if( $user->userType ==  'guest' ) selected @endif value="guest">guest</option>
-                            </select>
+                            <div class="mb-3 mt-4">
+                              <label for="exampleFormControlTextarea1" class="form-label">description_lg_class_room textarea</label>
+                              <textarea class="form-control" name="description_lg_class_room" id="exampleFormControlTextarea1" rows="3"> {{ $class->description_lg_class_room }} </textarea>
+                            </div>
+
+                            <div class="mb-3 mt-4">
+                              <label for="exampleFormControlTextarea1" class="form-label">description_sm_class_room textarea</label>
+                              <textarea class="form-control" name="description_sm_class_room" id="exampleFormControlTextarea1" rows="3"> {{ $class->description_sm_class_room }} </textarea>
+                            </div>
+
+                            <div class="mt-2 input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">time_class_room</span>
+                                </div>
+                                <input class="form-control" value="{{ $class->time_class_room }}" type="time" name="time_class_room" placeholder="Enter time_class_room" aria-label="time_class_room's ">
+                            </div>
+                            
+                            <div class="mt-2 input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">start_class_room</span>
+                                </div>
+                                <input class="form-control" value="{{ $class->start_class_room }}" type="date" name="start_class_room" placeholder="Enter start_class_room" aria-label="start_class_room's ">
+                            </div>
+                            
+                            <div class="mt-2 input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">end_class_room</span>
+                                </div>
+                                <input class="form-control" value="{{ $class->end_class_room }}" type="date" name="end_class_room" placeholder="Enter end_class_room" aria-label="end_class_room's ">
+                            </div>
+                            
+                            <div class="mt-2 input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">date_exam_class_room</span>
+                                </div>
+                                <input class="form-control" value="{{ $class->date_exam_class_room }}" type="date" name="date_exam_class_room" placeholder="Enter date_exam_class_room" aria-label="date_exam_class_room's ">
+                            </div>
+
+                            <div class="mt-2 input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">capacity_class_room</span>
+                                </div>
+                                <input class="form-control" value="{{ $class->capacity_class_room }}" type="text" name="capacity_class_room" placeholder="Enter capacity_class_room" aria-label="capacity_class_room's ">
+                            </div>
+                            
+                            <input type="text" hidden name="courses_id" value="{{$data['course']->id}}">
 
                             @csrf
                             <button type="submit" class="mt-3 btn btn-sm btn-success">ثبت</button>
@@ -165,14 +218,14 @@
                   </div>
                 </div>
               </div>
-        
-          
-          
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
+
+            </div>
+          </div>
+         
+        </div>
+      @endforeach
+      </div>
+ 
 
     </div>
     <!-- /.card-body -->
@@ -180,7 +233,7 @@
         
     </div>
     <div class="card-footer d-flex justify-content-center">
-        {{$data['userList']->links("pagination::bootstrap-4")}}
+        {{$data['class']->links("pagination::bootstrap-4")}}
     </div>
 
 
@@ -195,3 +248,4 @@
 
     
 @endsection('content')
+
