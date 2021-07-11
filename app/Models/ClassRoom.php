@@ -22,7 +22,7 @@ class ClassRoom extends Model
         'courses_id',
         'teacher_id',
     ];
-    
+
     public function course()
     {
         return $this->hasMany(Course::class, 'id', 'courses_id');
@@ -32,10 +32,10 @@ class ClassRoom extends Model
     {
         return $this->hasOne(User::class, 'id', 'teacher_id');
     }
-    
+
     public function students()
     {
-        return $this->belongsToMany(User::class, 'class_user', 'class_room_id', 'student_id');
+        return $this->belongsToMany(User::class, 'class_user', 'class_room_id', 'student_id')->withPivot(['class_room_id' , 'student_id']);
     }
 
 

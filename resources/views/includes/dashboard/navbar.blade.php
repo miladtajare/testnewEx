@@ -48,7 +48,7 @@
 
             <li class="nav-header">مدیریت کاربران</li>
             <li class="nav-item">
-              <a href="user" class="nav-link">
+              <a href="/user" class="nav-link">
                 <i class="nav-icon fa fa-file"></i>
                 <p>کاربران</p>
               </a>
@@ -71,11 +71,11 @@
               </a>
             </li> -->
 
-        
 
 
-           
-            
+
+
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

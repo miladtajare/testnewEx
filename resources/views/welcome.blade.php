@@ -39,16 +39,16 @@
                     @endauth
                 </div>
             @endif
-            
+
         </div>
 
-   
+
         <div class="row p-5">
             @foreach( $data['class'] as $class)
-            
+
             <div class="card col-lg-3 col-md-4 col-sm-12 border-0  p-2 shadow-none" style="font-size:25px;">
             <div class="col-12 shadow-sm bg-light border p-3">
-                
+
                 <div><small>عنوان کلاس : </small> {{$class->title_class_room}} </div>
                 <div><small>شماره کلاس : </small> {{$class->number_class_room}} </div>
                 <div class="mt-1 mb-3"><small>توضح کامل کلاس : </small> {{$class->description_lg_class_room}} </div>
@@ -60,26 +60,42 @@
                 <div><small>ظرفیت کلاس : </small> {{$class->capacity_class_room}} </div>
                 <div class="badge rounded col-12 badge-info bg-secondary  text-white"><small>مشخصات استاد  : </small>
                 @php $teacher = $class->teacher()->first() @endphp
-                {{$teacher->firstName}} | {{$teacher->lastName}} | {{$teacher->nationalCode}}              
+                {{$teacher->firstName}} | {{$teacher->lastName}} | {{$teacher->nationalCode}}
                 </div>
                 <div class="badge rounded col-12 badge-info bg-secondary  text-white"><small> در دوره   : </small>
                 @php $course = $class->course()->first() @endphp
-                {{$course->title_course}}               
+                {{$course->title_course}}
                 </div>
-                {{dump( $class->students()->first()->wherePivot('pivot_student_id','=',['1'])->get() )}}
-                
+
+
+
+
                 <br>
                 @auth
-                    @if( $class->students()->count() == 0 )
-                    
+                    @php $student_Register = $class->students()->wherePivot('student_id',Auth::user()->id)->count() @endphp
+                    @if( $student_Register == 0 )
+
                     <form action="/register_student_to_class" method="post">
                         @csrf
                         <input type="text" hidden name="class_id" value="{{ $class->id }}">
                         <input type="submit" class="btn btn-success mt-4" value=" ثبت نام در کلاس ">
                     </form>
+
                     @else
                     <div class="mt-3 text-center alert-info text-dagner rounded  ">شما در این دوره شرکت کرده اید</div>
+
+                    @php $student_Score = Auth::user()->score()->where('class_room_id',$class->id)->pluck('score_number')->first() @endphp
+                    @if($student_Score != 0)
+                        <div class="mt-3 text-center alert-info text-dagner rounded  ">نمره شما در این درس :  <b class="bg-primary text-white p-1"> {{ $student_Score }} </b> </div>
+                    @else
+                        <div class="mt-3 text-center alert-danger text-dagner rounded  font-weight-bold" style="font-size:22px;"> <small>نمره شما در این بخش نمایش داده میشود .  هنوز نمره ای برای این درس داده نشده </small></div>
                     @endif
+
+                    @endif
+
+
+
+
                 @else
                     <div class="mt-3 text-center alert-danger rounded ">برای ثبت نام در کلاس باید وارد شوید</div>
                 @endauth
@@ -87,12 +103,12 @@
 
 
             </div>
-            
+
             </div>
             @endforeach
         </div>
-    
 
-        
+
+
     </body>
 </html>

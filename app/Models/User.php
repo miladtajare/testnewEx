@@ -63,13 +63,6 @@ class User extends Authenticatable
         return $this->hasMany(Score::class, 'student_id', 'id');
     }
 
-    public function user_class_register($class)
-    {
-        $class = $class::whereHas('students', function($q) {
-           dd($q->get());
-            //$q->whereIn('id', [1] );
-        });
 
-    }
 
 }
