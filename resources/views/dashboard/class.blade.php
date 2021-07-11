@@ -146,14 +146,23 @@
             <div><small>زمان پایان : </small> {{$class->end_class_room}} </div>
             <div><small>زمان امتحان  : </small> {{$class->date_exam_class_room}} </div>
             <div><small>ظرفیت کلاس : </small> {{$class->capacity_class_room}} </div>
-            <div class="badge badge-info fs-20"><small>مشخصات استاد  : </small>
+            <div class="badge badge-light mt-2 p-2 fs-20"><small>مشخصات استاد  : </small>
               
               @php $teacher = $class->teacher()->first() @endphp
               {{$teacher->firstName}} | {{$teacher->lastName}} | {{$teacher->nationalCode}}
             
             </div>
-            
 
+            <div class="badge badge-light text-right col-12 mt-3 p-2 fs-20"><small> دانشجویان شرکت کننده :    
+              <br>
+              @php $students = $class->students()->get() @endphp
+              @foreach( $students as $student )
+                <span class="badge bg-info"> {{$student->id}} -  {{$student->firstName}} | {{$student->lastName}} | {{$student->nationalCode}}</span><br>
+              @endforeach
+              </small>
+            
+            </div>
+            
 
 
             <div class="col-12 bg-light mt-3 mb-2 d-flex justify-content-end p-2">

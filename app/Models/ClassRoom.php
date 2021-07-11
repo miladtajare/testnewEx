@@ -36,7 +36,7 @@ class ClassRoom extends Model
 
     public function students()
     {
-        return $this->belongsToMany(User::class, 'class_user', 'student_id', 'class_room_id');
+        return $this->belongsToMany(User::class, 'class_user', 'class_room_id', 'student_id');
     }
 
 
