@@ -32,7 +32,12 @@ class ClassRoom extends Model
     {
         return $this->hasOne(User::class, 'id', 'teacher_id');
     }
+    
 
+    public function students()
+    {
+        return $this->belongsToMany(User::class, 'class_user', 'student_id', 'class_room_id');
+    }
 
 
 }

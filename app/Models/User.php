@@ -52,4 +52,10 @@ class User extends Authenticatable
         if($user_type == 'guest'){return 'مهمان';}
         return 'هیچ!';
     }
+
+    public function class()
+    {
+        return $this->belongsToMany(ClassRoom::class, 'class_user', 'student_id', 'class_room_id');
+    }
+
 }
