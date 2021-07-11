@@ -143,7 +143,6 @@ class UserController extends Controller
             'nationalCode' => 'required|digits:10|unique:users',
             'email' => 'required|email|unique:users',
             'userType' => 'required',
-            'password' => 'required',
         ]);
     }
 

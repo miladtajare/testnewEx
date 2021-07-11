@@ -36,6 +36,9 @@ class CreateClassRoomsTable extends Migration
             $table->unsignedBigInteger('courses_id');
             $table->foreign('courses_id')->references('id')->on('courses')->onDelete('cascade');
 
+            $table->unsignedBigInteger('teacher_id');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
+
 
 
         });

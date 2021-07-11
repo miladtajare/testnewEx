@@ -28,10 +28,14 @@
 
 
       <div class="card-tools">
-      
+
+        @if( $data['teachers']->count() != 0 )
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
           اضافه کردن
         </button>
+        @else
+        <div class=" p-1 alert-warnig  bg-danger"> شما ابتدا باید استادی داشته باشید تا بتوانید کلاس را به استاد نسبت بدهید</div>
+        @endif
 
         <div class="mt-5 modal fade" id="myModal">
           <div class="modal-dialog modal-lg">
@@ -44,11 +48,22 @@
               <div class="modal-body">
                   <form method="post" action="/classRoom">
 
+                      <select class="form-control mt-2 mb-5 form-control border border-danger" name="teacher_id" aria-label="Default select example">
+                        <option selected >استاد این کلاس را انتحاب کنید</option>
+                        @foreach( $data['teachers'] as $teacher )
+                        <option value="{{$teacher->id}}">
+                          {{$teacher->firstName}} | 
+                          {{$teacher->lastName}} | 
+                          {{$teacher->nationalCode}}
+                        </option>
+                        @endforeach
+                      </select>
+
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
                               <span class="input-group-text">title_class_room</span>
                           </div>
-                          <input class="form-control"  type="text" name="title_class_room" placeholder="Enter title_class_room" aria-label="title_class_room's ">
+                          <input class="form-control" type="text" name="title_class_room" placeholder="Enter title_class_room" aria-label="title_class_room's ">
                       </div>
                       
                       <div class="mt-2 input-group">
@@ -131,8 +146,16 @@
             <div><small>زمان پایان : </small> {{$class->end_class_room}} </div>
             <div><small>زمان امتحان  : </small> {{$class->date_exam_class_room}} </div>
             <div><small>ظرفیت کلاس : </small> {{$class->capacity_class_room}} </div>
+            <div class="badge badge-info fs-20"><small>مشخصات استاد  : </small>
+              
+              @php $teacher = $class->teacher()->first() @endphp
+              {{$teacher->firstName}} | {{$teacher->lastName}} | {{$teacher->nationalCode}}
             
+            </div>
             
+
+
+
             <div class="col-12 bg-light mt-3 mb-2 d-flex justify-content-end p-2">
 
 
@@ -150,6 +173,18 @@
                         <form method="post" action="/classRoom/{{$class->id}}">
                             @method('PATCH')
                     
+                            
+                            <select class="form-control mt-2 mb-5 form-control border border-danger" name="teacher_id" aria-label="Default select example">
+                              <option selected >استاد این کلاس را انتحاب کنید</option>
+                              @foreach( $data['teachers'] as $teacher )
+                              <option value="{{$teacher->id}}">
+                                {{$teacher->firstName}} | 
+                                {{$teacher->lastName}} | 
+                                {{$teacher->nationalCode}}
+                              </option>
+                              @endforeach
+                            </select>
+
                             <div class="mt-2 input-group">
                                 <div class="input-group-append">
                                     <span class="input-group-text">title_class_room</span>

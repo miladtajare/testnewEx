@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ClassRoom;
 use App\Models\Course;
+use App\Models\User;
 
 class ClassRoomController extends Controller
 {
@@ -64,6 +65,7 @@ class ClassRoomController extends Controller
             'date_exam_class_room' => $request->date_exam_class_room , 
             'capacity_class_room' => $request->capacity_class_room ,
             'courses_id' => $request->courses_id ,
+            'teacher_id' => $request->teacher_id,
         ]);
         return back();
     }
@@ -78,6 +80,7 @@ class ClassRoomController extends Controller
     {
         $data = [
             'title' => ' کلاس ها ',
+            'teachers' => User::where('userType','teacher')->get(['firstName','lastName','nationalCode','id']),
             'course' => $course = Course::find($id_course),
             'class'=> $course->classrooms()->paginate(10),
         ];
@@ -129,6 +132,7 @@ class ClassRoomController extends Controller
         $classroom->date_exam_class_room = $request->date_exam_class_room ;
         $classroom->capacity_class_room = $request->capacity_class_room;
         $classroom->courses_id = $request->courses_id;
+        $classroom->teacher_id = $request->teacher_id;
         $classroom->save();
         return back();
     }

@@ -20,6 +20,7 @@ class ClassRoom extends Model
         'date_exam_class_room',
         'capacity_class_room',
         'courses_id',
+        'teacher_id',
     ];
     
     public function course()
@@ -27,6 +28,10 @@ class ClassRoom extends Model
         return $this->hasMany(Course::class, 'id', 'courses_id');
     }
 
+    public function teacher()
+    {
+        return $this->hasOne(User::class, 'id', 'teacher_id');
+    }
 
 
 
