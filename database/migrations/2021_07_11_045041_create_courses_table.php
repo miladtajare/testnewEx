@@ -23,8 +23,6 @@ class CreateCoursesTable extends Migration
 
             $table->text('description_lg_courses')->nullable();
             $table->text('description_sm_courses')->nullable();
-
-            $table->string('number_course')->nullable();
             
         });
     }
