@@ -147,17 +147,50 @@
             <div><small>زمان امتحان  : </small> {{$class->date_exam_class_room}} </div>
             <div><small>ظرفیت کلاس : </small> {{$class->capacity_class_room}} </div>
             <div class="badge badge-light mt-2 p-2 fs-20"><small>مشخصات استاد  : </small>
-              
               @php $teacher = $class->teacher()->first() @endphp
               {{$teacher->firstName}} | {{$teacher->lastName}} | {{$teacher->nationalCode}}
-            
             </div>
 
             <div class="badge badge-light text-right col-12 mt-3 p-2 fs-20"><small> دانشجویان شرکت کننده :    
-              <br>
+              <br><br>
               @php $students = $class->students()->get() @endphp
               @foreach( $students as $student )
-                <span class="badge bg-info"> {{$student->id}} -  {{$student->firstName}} | {{$student->lastName}} | {{$student->nationalCode}}</span><br>
+                <span class="badge bg-info p-2 m-1"> 
+                  {{$student->id}} -  {{$student->firstName}} | {{$student->lastName}} | {{$student->nationalCode}}
+
+                  <button class="btn btn-sm btn-dark mr-4"  data-toggle="modal" data-target="#myModaladdnumber{{$class->id}}"><small> ثبت نمره این دانشجو در این درس </small></button>
+
+                  <div class="mt-5 modal fade" id="myModaladdnumber{{$class->id}}">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="/classRoom/{{$class->id}}">
+                                @method('PATCH')
+                        
+                                <div class="mt-2 input-group">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">نمره این درس  برای دانشجو</span>
+                                    </div>
+                                    <input class="form-control"  type="text" name="Score" placeholder="Enter Score" aria-label="Score's ">
+                                </div>
+
+                                <input type="text" hidden name="courses_id" value="{{$data['course']->id}}">
+
+                                @csrf
+                                <button type="submit" class="mt-3 btn btn-sm btn-success">ثبت</button>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </span>  
+                <br>
               @endforeach
               </small>
             
