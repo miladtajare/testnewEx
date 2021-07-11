@@ -9,7 +9,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"></h3>
+          <h3 class="card-title">صفحه دوره ها ها </h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -18,12 +18,12 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
-        <div class="card-body display-4">
-          به صفحه نخست  پنل مدیریت خوش آمدید.
+        <div class="card-body">
+      
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-          
+      
         </div>
         <!-- /.card-footer-->
       </div>

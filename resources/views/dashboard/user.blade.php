@@ -55,11 +55,11 @@
                       </div>
 
                       <select class="form- mt-2 form-control" name="userType" aria-label="Default select example">
-                        <option selected>user type select</option>
-                        <option value="teacher">teacher</option>
-                        <option value="student">student</option>
-                        <option value="manager">manager</option>
-                        <option value="guest">guest</option>
+                        <option selected>نوع کاربر را انتخاب کنید</option>
+                        <option value="teacher">استاد</option>
+                        <option value="student">دانشجو</option>
+                        <option value="manager">مدیر</option>
+                        <option value="guest">مهمان</option>
                       </select>
 
                       <div class="mt-2 input-group">
