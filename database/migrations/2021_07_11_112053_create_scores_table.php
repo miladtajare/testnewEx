@@ -14,7 +14,7 @@ class CreateScoresTable extends Migration
     public function up()
     {
         Schema::create('scores', function (Blueprint $table) {
-
+            $table->id();
             $table->timestamps();
           
             $table->integer('score_number');
@@ -25,7 +25,7 @@ class CreateScoresTable extends Migration
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->primary(['class_room_id','student_id']);
+
         });
     }
 

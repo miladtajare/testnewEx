@@ -33,7 +33,6 @@ class ClassRoom extends Model
         return $this->hasOne(User::class, 'id', 'teacher_id');
     }
     
-
     public function students()
     {
         return $this->belongsToMany(User::class, 'class_user', 'class_room_id', 'student_id');

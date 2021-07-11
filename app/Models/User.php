@@ -58,4 +58,18 @@ class User extends Authenticatable
         return $this->belongsToMany(ClassRoom::class, 'class_user', 'student_id', 'class_room_id');
     }
 
+    public function score()
+    {
+        return $this->hasMany(Score::class, 'student_id', 'id');
+    }
+
+    public function user_class_register($class)
+    {
+        $class = $class::whereHas('students', function($q) {
+           dd($q->get());
+            //$q->whereIn('id', [1] );
+        });
+
+    }
+
 }

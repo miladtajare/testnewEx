@@ -134,18 +134,18 @@
     <div class="card-body">
       <div class="row">
       @foreach( $data['class'] as $class )
-        <div class="card col-lg-4 col-md-4 col-sm-12 border-0  p-2 shadow-none" style="">
+        <div class="card col-lg-12 col-md-12 col-sm-12 border-0  p-2 shadow-none" style="">
           <div class="col-12 shadow-sm border p-3">
             <span class="badge fs-20 badge-dark mb-2 ms-5"> {{ $class->id }} </span>
-            <div><small>عنوان کلاس : </small> {{$class->title_class_room}} </div>
-            <div><small>شماره کلاس : </small> {{$class->number_class_room}} </div>
+            <div class="d-inline mr-4 ml-4"><small>عنوان کلاس : </small> {{$class->title_class_room}} </div>
+            <div class="d-inline mr-4 ml-4"><small>شماره کلاس : </small> {{$class->number_class_room}} </div>
             <div class="mt-1 mb-3"><small>توضح کامل کلاس : </small> {{$class->description_lg_class_room}} </div>
             <div><small>خلاصه توضیح : </small> {{$class->description_sm_class_room}} </div>
-            <div><small>ساعت کلاس : </small> {{$class->time_class_room}} </div>
-            <div><small>زمان شروع : </small> {{$class->start_class_room}} </div>
-            <div><small>زمان پایان : </small> {{$class->end_class_room}} </div>
-            <div><small>زمان امتحان  : </small> {{$class->date_exam_class_room}} </div>
-            <div><small>ظرفیت کلاس : </small> {{$class->capacity_class_room}} </div>
+            <div class="d-inline mr-4 ml-4"><small>ساعت کلاس : </small> {{$class->time_class_room}} </div>
+            <div class="d-inline mr-4 ml-4"><small>زمان شروع : </small> {{$class->start_class_room}} </div>
+            <div class="d-inline mr-4 ml-4"><small>زمان پایان : </small> {{$class->end_class_room}} </div>
+            <div class="d-inline mr-4 ml-4"><small>زمان امتحان  : </small> {{$class->date_exam_class_room}} </div>
+            <div class="d-inline mr-4 ml-4"><small>ظرفیت کلاس : </small> {{$class->capacity_class_room}} </div><br>
             <div class="badge badge-light mt-2 p-2 fs-20"><small>مشخصات استاد  : </small>
               @php $teacher = $class->teacher()->first() @endphp
               {{$teacher->firstName}} | {{$teacher->lastName}} | {{$teacher->nationalCode}}
@@ -158,9 +158,9 @@
                 <span class="badge bg-info p-2 m-1"> 
                   {{$student->id}} -  {{$student->firstName}} | {{$student->lastName}} | {{$student->nationalCode}}
 
-                  <button class="btn btn-sm btn-dark mr-4"  data-toggle="modal" data-target="#myModaladdnumber{{$class->id}}"><small> ثبت نمره این دانشجو در این درس </small></button>
-
-                  <div class="mt-5 modal fade" id="myModaladdnumber{{$class->id}}">
+                  @if( $student->score()->where('class_room_id',$class->id)->count() == 0 )
+                  <button class="btn btn-sm btn-dark mr-4"  data-toggle="modal" data-target="#myModaladdnumber{{$student->id}}"><small> ثبت نمره این دانشجو در این درس </small></button>
+                  <div class="mt-5 modal fade" id="myModaladdnumber{{$student->id}}">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -169,18 +169,16 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/classRoom/{{$class->id}}">
-                                @method('PATCH')
-                        
+                            <form method="post" action="/score">
                                 <div class="mt-2 input-group">
                                     <div class="input-group-append">
                                         <span class="input-group-text">نمره این درس  برای دانشجو</span>
                                     </div>
-                                    <input class="form-control"  type="text" name="Score" placeholder="Enter Score" aria-label="Score's ">
+                                    <input class="form-control"  type="text" name="score_number" placeholder="Enter Score" aria-label="Score's ">
                                 </div>
 
-                                <input type="text" hidden name="courses_id" value="{{$data['course']->id}}">
-
+                                <input type="text" hidden name="class_room_id" value="{{$class->id}}">
+                                <input type="text" hidden name="student_id" value="{{ $student->id }}">
                                 @csrf
                                 <button type="submit" class="mt-3 btn btn-sm btn-success">ثبت</button>
                             </form>
@@ -188,6 +186,10 @@
                       </div>
                     </div>
                   </div>
+                  @else 
+                  <button class="btn btn-sm btn-primary font-weight-bold mr-4"><small> شما برای این دانشجو و این درس نمره ثبت کرده اید </small></button>
+                  @endif
+     
 
                 </span>  
                 <br>

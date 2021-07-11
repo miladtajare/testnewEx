@@ -66,11 +66,12 @@
                 @php $course = $class->course()->first() @endphp
                 {{$course->title_course}}               
                 </div>
-
-
+                {{dump( $class->students()->first()->wherePivot('pivot_student_id','=',['1'])->get() )}}
+                
                 <br>
                 @auth
                     @if( $class->students()->count() == 0 )
+                    
                     <form action="/register_student_to_class" method="post">
                         @csrf
                         <input type="text" hidden name="class_id" value="{{ $class->id }}">

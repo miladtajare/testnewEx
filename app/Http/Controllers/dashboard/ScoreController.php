@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Score;
 
 class ScoreController extends Controller
 {
@@ -35,7 +36,14 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        dd( $requst->all() );
+
+        Score::create([
+            'score_number'  => $request->score_number ,
+            'class_room_id'  => $request->class_room_id ,
+            'student_id'  => $request->student_id ,
+        ]);
+
+        return back();
     }
 
     /**

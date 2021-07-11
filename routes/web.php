@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\dashboard\UserController;
 use App\Http\Controllers\dashboard\ClassRoomController;
 use App\Http\Controllers\dashboard\CourseController;
 use App\Http\Controllers\dashboard\StudentController;
+use App\Http\Controllers\dashboard\ScoreController;
+
 use App\Http\Controllers\MainController;
 
 
@@ -36,5 +39,10 @@ Route::resource('classRoom', ClassRoomController::class);
 //course
 Route::resource('course', CourseController::class);
 
+//course
+Route::resource('score', ScoreController::class);
+
 
 Route::post('/register_student_to_class',[StudentController::class , 'register_student_to_class']);
+
+
