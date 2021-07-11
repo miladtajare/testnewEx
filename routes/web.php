@@ -13,12 +13,17 @@ use App\Http\Controllers\dashboard\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', function () {  return view('welcome');  });
 Auth::routes();
+
 
 Route::get('/Panel', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//user
 Route::resource('user', UserController::class);
+
+//classRoom
+Route::resource('classRoom', ClassRoomController::class);
+
+//course
+Route::resource('course', CourseController::class);
