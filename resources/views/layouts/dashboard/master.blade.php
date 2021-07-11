@@ -26,6 +26,15 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+  <style>
+    .fs-25{
+      font-size:25px;
+    }
+    .fs-20{
+      font-size:20px;
+    }
+  </style>
+
 </head>
 <body class="hold-transition sidebar-mini">
 

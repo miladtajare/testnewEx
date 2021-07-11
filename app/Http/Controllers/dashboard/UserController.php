@@ -105,7 +105,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $res_validate = $this->ValidateUserUpdate($request , $user);
+        $res_validate = $this->ValidateUserUpdate($request);
         if($res_validate->fails())
         {
             $message = '';
@@ -148,7 +148,7 @@ class UserController extends Controller
     }
 
 
-    public function ValidateUserUpdate($request , $user)
+    public function ValidateUserUpdate($request)
     {
         return $validator = \Validator::make(request()->all(), [
             'firstName' => 'required|min:2|max:150',
