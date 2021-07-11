@@ -63,13 +63,13 @@
             </li>
 
 
-            <li class="nav-header">مدیریت کلاس ها </li>
+            <!-- <li class="nav-header">مدیریت کلاس ها </li>
             <li class="nav-item">
               <a href="/classRoom" class="nav-link">
                 <i class="nav-icon fa fa-file"></i>
                 <p>کلاس</p>
               </a>
-            </li>
+            </li> -->
 
         
 
