@@ -29,7 +29,9 @@
             @if (Route::has('login'))
                 <div class=" right-0 px-6 py-4 sm:block ">
                     @auth
+                        @can('show-teacher-manager')
                         <a href="{{ url('/Panel') }}" class="text-sm text-gray-700 underline"><b class="text-light bg-primary p-2">Dashboard </b></a>
+                        @endcan
                         <a class=" me-2 btn btn-warning mr-4" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout') }}" > {{ __('خروج') }}   {{ Auth::user()->userName }} </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -77,6 +79,9 @@
 
                 <br>
                 @auth
+
+                @can('show-student')
+
                     @php $student_Register = $class->students()->wherePivot('student_id',Auth::user()->id)->count() @endphp
                     @if( $student_Register == 0 )
 
@@ -97,6 +102,9 @@
                     @endif
 
                     @endif
+
+                @endcan
+
                 @else
                     <div class="mt-3 text-center alert-danger rounded ">برای ثبت نام در کلاس باید وارد شوید</div>
                 @endauth

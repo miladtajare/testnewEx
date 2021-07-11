@@ -44,8 +44,8 @@ Route::group( [ 'middleware' => ['auth','can:show-teacher-manager'] ] ,function(
     //course
     Route::resource('score', ScoreController::class);
 
-
-    Route::post('/register_student_to_class',[StudentController::class , 'register_student_to_class']);
+    //register_student_to_class
+    Route::post('/register_student_to_class',[StudentController::class , 'register_student_to_class'])->withoutMiddleware('can:show-teacher-manager');
 
 });
 

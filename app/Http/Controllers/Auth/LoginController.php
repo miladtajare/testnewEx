@@ -58,7 +58,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials))
         {
-            if( (Auth::user()->userType == 'teacher') && (Auth::user()->userType == 'manager') )
+            if( (Auth::user()->userType == 'teacher') || (Auth::user()->userType == 'manager') )
             { return redirect('/Panel'); }
             else{ return redirect('/'); }
         }

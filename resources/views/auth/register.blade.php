@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+{!! NoCaptcha::renderJs() !!}
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -38,10 +38,10 @@
                                 @enderror
                             </div>
                         </div>
-                        
 
 
-                        
+
+
                         <div class="form-group row">
                             <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('firstName') }}</label>
 
@@ -56,7 +56,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group row">
                             <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __('lastName') }}</label>
 
@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group row">
                             <label for="nationalCode" class="col-md-4 col-form-label text-md-right">{{ __('nationalCode') }}</label>
 
@@ -108,6 +108,8 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
+                        {!! NoCaptcha::display() !!}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
