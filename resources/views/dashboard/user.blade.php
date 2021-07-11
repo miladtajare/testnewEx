@@ -6,11 +6,24 @@
 
   <!-- Default box -->
   <div class="card">
+    <form>
+      <select class="form-control mt-2 form-control border border-danger"  onchange="this.form.submit()" name="user_Type" aria-label="Default select example">
+        <option selected >فیلتر نوع  کاربر را انتخاب کنید</option>
+        <option value="teacher">استاد</option>
+        <option value="student">دانشجو</option>
+        <option value="manager">مدیر</option>
+        <option value="guest">مهمان</option>
+        <option value="">همه</option>
+      </select>
+    </form>
+    
     <div class="card-header">
       <h3 class="card-title"> {{ $data['title'] }} </h3>
 
-      <div class="card-tools">
+ 
 
+      <div class="card-tools">
+      
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
           اضافه کردن
         </button>

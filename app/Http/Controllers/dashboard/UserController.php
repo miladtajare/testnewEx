@@ -14,12 +14,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        $user_list = new User();
+        if( $request->user_Type ) { $user_list = $user_list->where('userType',$request->user_Type); }
+        $user_list = $user_list->paginate(10);
+
         $data = [
             'title' => 'صفحه کاربران' ,
-            'userList' => User::paginate(10) ,
+            'userList' => $user_list ,
         ];
         return view('dashboard.user' , compact('data'));
     }
