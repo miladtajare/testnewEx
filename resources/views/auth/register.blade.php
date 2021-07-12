@@ -109,7 +109,13 @@
                             </div>
                         </div>
 
-                        {!! NoCaptcha::display() !!}
+                        <div class="form-group row">
+
+                            <div class="col-md-12 mt-4 mb-4 d-flex justify-content-center ms-4 bg-">
+                            {!! NoCaptcha::display() !!}
+                            </div>
+                        </div>
+                      
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
