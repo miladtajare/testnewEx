@@ -49,6 +49,46 @@
 
         </div>
 
+        <p>
+            <a class="btn btn-success m-4 me-5" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> اطلاعات برنامه  </a>
+        </p>
+        <div class="collapse mt-0 pt-0" id="collapseExample">
+            <div class="card card-body mt-0 pt-0">
+                
+                <span class="col-12 mt-4 alert-info alert col-2"> سظح دسرسی  ساده ای اعمال شده است </span>
+                <div class="col-12  alert alert-warning" >
+                نوع های کاربری : 
+                مهمان : همه اعضا در ابتدا مهمان هستند و مدیر کاربری را تغییر میدهد
+                </div>
+
+                <div class="col-12 mt-4">
+                <b> دانشجو : </b>
+                <ul>
+                <li>درس ها را ببیند  </li>
+                <li>در درس ثبت نام کند </li>
+                <li>نمره درس را ببیند </li>
+                <li>و... </li>
+                </ul>
+                </div>
+
+                <div class="col-12 mt-4">
+                <b> مدیر و استاد : </b>
+                <ul>
+                <li> به پنل دسرسی دارند  </li>
+                <li> میتوانند دوره اضافه کنند </li>
+                <li> میتوانند درس اضافه کنند </li>
+                <li> میتوانند نمره ثبت کنند برای دانشجو های یک درس </li>
+                <li> میتوانند کاربر با نوع های مختلف اضافه کنند  </li>
+                <li> ویرایش درس دوره و کاربران را دارند و ... </li>
+                </ul>
+                </div>
+
+                <div class="text- alert alert-danger "> کاربر پیش فرض برای ورود به سیستم که بتوان بقیه کاربران را تغییر داد : 
+                    username : admin
+                    password : 12345678 
+                </div>
+            </div>
+        </div>
 
         <div class="row p-5">
             @foreach( $data['class'] as $class)
