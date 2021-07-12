@@ -7,24 +7,15 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('dashboard/dist/css/adminlte.min.css')}}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-  <!-- bootstrap rtl -->
-  <link rel="stylesheet" href="{{asset('dashboard/dist/css/bootstrap-rtl.min.css')}}">
-  <!-- template rtl version -->
-  <link rel="stylesheet" href="{{asset('dashboard/dist/css/custom-style.css')}}">
+  <!-- start =>  use laravel Mix to compile file assets!!! -->
   
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Styles -->
+  <link href="{{ asset('css/Panel/app.css') }}" rel="stylesheet">
+ 
+  <!-- end => use laravel Mix to compile file assets!!! -->
+
+
 
   <style>
     .fs-25{
@@ -35,6 +26,8 @@
     }
   </style>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -226,13 +219,12 @@
 <!-- ./wrapper -->
 
 
-<script src="{{ asset('dashboard\plugins\jquery\jquery.min.js') }}"></script>
-<script src="{{ asset('dashboard\plugins\bootstrap\js\bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('dashboard\plugins\slimScroll\jquery.slimscroll.min.js') }}"></script>
-<script src="{{ asset('dashboard\plugins\fastclick\fastclick.js') }}"></script>
-<script src="{{ asset('dashboard\dist\js\adminlte.min.js') }}"></script>
+  <!-- start =>  use laravel Mix to compile file assets!!! -->
 
+  <!-- Scripts -->
+  <script src="{{ asset('js/Panel/app.js') }}" defer></script>
 
-<script src="{{ asset('dist/js/demo.js') }}"></script>
+  <!-- end => use laravel Mix to compile file assets!!! -->
+
 </body>
 </html>
