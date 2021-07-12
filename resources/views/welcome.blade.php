@@ -49,20 +49,29 @@
 
         </div>
 
-        <p>
-            <a class="btn btn-success m-4 me-5" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> اطلاعات برنامه  </a>
-        </p>
-        <div class="collapse mt-0 pt-0" id="collapseExample">
-            <div class="card card-body mt-0 pt-0">
-                
-                <span class="col-12 mt-4 alert-info alert col-2"> سظح دسرسی  ساده ای اعمال شده است </span>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success me-5 mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            اطلاعات برنامه | مطالعه شود قبل از اجرا
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="col-12  alert alert-info"> سظح دسرسی  ساده ای اعمال شده است </div>
                 <div class="col-12  alert alert-warning" >
                 نوع های کاربری : 
                  همه اعضا در ابتدا دانشجو هستند و مدیر کاربری را تغییر میدهد
                 </div>
 
                 <div class="col-12 mt-4" >
-                    <b> مهمان :  </b>
+                    <b> مهمان :  </b><br>
                     هیچ دسرسی ندارد فقط به صفحه اولیه نمایش درس ها دسرسی دارد 
                     نمیتواند ثبت نام کند در درسی یا نمره ببیند و ..
                 </div>
@@ -94,9 +103,17 @@
                     password : 12345678 
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
         </div>
 
-        <div class="row p-5">
+
+
+
+        <div class="row p-5 pt-3">
             @foreach( $data['class'] as $class)
 
             <div class="card col-lg-3 col-md-4 col-sm-12 border-0  p-2 shadow-none" style="font-size:25px;">
