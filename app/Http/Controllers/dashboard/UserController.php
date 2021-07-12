@@ -71,7 +71,7 @@ class UserController extends Controller
             'nationalCode' => $request->nationalCode,
             'userType' => $request->userType,
             'email' => $request->email,
-            'password' => Hash::make( $request->nationalCode ),
+            'password' => Hash::make(12345678),
         ]);
 
         return back();
