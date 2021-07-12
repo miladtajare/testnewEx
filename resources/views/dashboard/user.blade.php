@@ -41,28 +41,28 @@
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">firstName</span>
+                              <span class="input-group-text">نام</span>
                           </div>
                           <input class="form-control" type="text" name="firstName" placeholder="Enter firstName" aria-label="firstName's ">
                       </div>
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">lastName</span>
+                              <span class="input-group-text">نام خانوادگی</span>
                           </div>
                           <input class="form-control" type="text" name="lastName" placeholder="Enter lastName" aria-label="lastName's ">
                       </div>
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">userName</span>
+                              <span class="input-group-text">نام کاربری</span>
                           </div>
                           <input class="form-control" type="text" name="userName" placeholder="Enter userName" aria-label="userName_participant's ">
                       </div>
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">nationalCode</span>
+                              <span class="input-group-text">کد ملی</span>
                           </div>
                           <input class="form-control" type="text" name="nationalCode" placeholder="Enter nationalCode" aria-label="nationalCode_participant's ">
                       </div>
@@ -77,7 +77,7 @@
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">email</span>
+                              <span class="input-group-text">ایمیل</span>
                           </div>
                           <input class="form-control" type="text" name="email" placeholder="Enter email" aria-label="email_participant's ">
                       </div>
@@ -99,13 +99,13 @@
         <thead>
           <tr>
             <th scope="col" class="text-center">id</th>
-            <th scope="col" class="text-center">firstName</th>
-            <th scope="col" class="text-center">lastName</th>
-            <th scope="col" class="text-center">userName</th>
-            <th scope="col" class="text-center">nationalCode</th>
-            <th scope="col" class="text-center">email</th>
-            <th scope="col" class="text-center">userType</th>
-            <th scope="col" class="text-center bg-light">Access</th>
+            <th scope="col" class="text-center">نام</th>
+            <th scope="col" class="text-center">نام خانوادگی</th>
+            <th scope="col" class="text-center">نام کاربری</th>
+            <th scope="col" class="text-center">شماره ملی</th>
+            <th scope="col" class="text-center">ایمیل</th>
+            <th scope="col" class="text-center">نوع کاربری</th>
+            <th scope="col" class="text-center bg-light">دسرسی ها </th>
           </tr>
         </thead>
         <tbody>

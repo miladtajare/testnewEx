@@ -61,59 +61,59 @@
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">title_class_room</span>
+                              <span class="input-group-text">عنوان کلاس</span>
                           </div>
                           <input class="form-control" type="text" name="title_class_room" placeholder="Enter title_class_room" aria-label="title_class_room's ">
                       </div>
                       
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">number_class_room</span>
+                              <span class="input-group-text">شماره کلاس</span>
                           </div>
                           <input class="form-control"  type="text" name="number_class_room" placeholder="Enter number_class_room" aria-label="number_class_room's ">
                       </div>
 
                       <div class="mb-3 mt-4">
-                        <label for="exampleFormControlTextarea1" class="form-label">description_lg_class_room textarea</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">توضیحات کامل کلاس textarea</label>
                         <textarea class="form-control" name="description_lg_class_room" id="exampleFormControlTextarea1" rows="3">  </textarea>
                       </div>
 
                       <div class="mb-3 mt-4">
-                        <label for="exampleFormControlTextarea1" class="form-label">description_sm_class_room textarea</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">خلاصه توضیحات کلاس textarea</label>
                         <textarea class="form-control" name="description_sm_class_room" id="exampleFormControlTextarea1" rows="3"> </textarea>
                       </div>
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">time_class_room</span>
+                              <span class="input-group-text">زمان کلاس</span>
                           </div>
                           <input class="form-control"  type="time" name="time_class_room" placeholder="Enter time_class_room" aria-label="time_class_room's ">
                       </div>
                       
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">start_class_room</span>
+                              <span class="input-group-text">تاریخ شروع کلاس</span>
                           </div>
                           <input class="form-control"  type="date" name="start_class_room" placeholder="Enter start_class_room" aria-label="start_class_room's ">
                       </div>
                       
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">end_class_room</span>
+                              <span class="input-group-text">تاریخ پایان کلاس</span>
                           </div>
                           <input class="form-control"  type="date" name="end_class_room" placeholder="Enter end_class_room" aria-label="end_class_room's ">
                       </div>
                       
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">date_exam_class_room</span>
+                              <span class="input-group-text">تاریخ امتحان</span>
                           </div>
                           <input class="form-control"  type="date" name="date_exam_class_room" placeholder="Enter date_exam_class_room" aria-label="date_exam_class_room's ">
                       </div>
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">capacity_class_room</span>
+                              <span class="input-group-text">ظرفیت کلاس</span>
                           </div>
                           <input class="form-control"  type="text" name="capacity_class_room" placeholder="Enter capacity_class_room" aria-label="capacity_class_room's ">
                       </div>

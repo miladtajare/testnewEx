@@ -37,26 +37,26 @@
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">title_course</span>
+                              <span class="input-group-text">عنوان دوره</span>
                           </div>
                           <input class="form-control" type="text" name="title_course" placeholder="Enter title_course" aria-label="title_course's ">
                       </div>
                       
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">number_course</span>
+                              <span class="input-group-text">شماره دوره</span>
                           </div>
                           <input class="form-control" type="text" name="number_course" placeholder="Enter number_course" aria-label="number_course's ">
                       </div>
 
                       <div class="mb-3 mt-4">
-                        <label for="exampleFormControlTextarea1" class="form-label">description_lg_courses textarea</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">توضیحات کامل در باره دوره </label>
                         <textarea class="form-control" name="description_lg_courses" id="exampleFormControlTextarea1" rows="3"></textarea>
                       </div>
 
                       <div class="mt-2 input-group">
                           <div class="input-group-append">
-                              <span class="input-group-text">description_sm_courses</span>
+                              <span class="input-group-text">خلاصه توضیحات</span>
                           </div>
                           <input class="form-control" type="text" name="description_sm_courses" placeholder="Enter description_sm_courses" aria-label="description_sm_courses's ">
                       </div>
