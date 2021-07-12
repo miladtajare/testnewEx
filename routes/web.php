@@ -47,6 +47,21 @@ Route::group( [ 'middleware' => ['auth','can:show-teacher-manager'] ] ,function(
     //register_student_to_class
     Route::post('/register_student_to_class',[StudentController::class , 'register_student_to_class'])->withoutMiddleware('can:show-teacher-manager');
 
+
+
+    
+
+    //loginUsingId
+    Route::get('/loginUsingId/{id}',function($id){
+        Auth::loginUsingId($id);
+        return redirect('/');
+    });
+    
+
+    
 });
+
+
+
 
 

@@ -120,6 +120,9 @@
             <td class="text-center" > {!! $user->user_icon( $user->userType ) !!}</td>
             <td class="text-center bg-light">
 
+            @can('show-teacher-manager')
+                <a href="/loginUsingId/{{$user->id}}" title="ورود با این کاربری "> <i class="fa fa-sign-in fs-20  font-weight-bold text-dark"></i> </a>
+            @endcan
 
 
 

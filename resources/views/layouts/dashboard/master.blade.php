@@ -89,7 +89,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 ml-3 img-circle">
+              
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   حسام موسوی
@@ -105,7 +105,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle ml-3">
+              
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   پیمان احمدی
@@ -121,7 +121,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle ml-3">
+              
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   سارا وکیلی
