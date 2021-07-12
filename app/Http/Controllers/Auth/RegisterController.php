@@ -76,7 +76,7 @@ class RegisterController extends Controller
             'firstName' => $data['firstName'],
             'lastName' => $data['lastName'],
             'nationalCode' => $data['nationalCode'],
-            'userType' => 'guest',
+            'userType' => 'student',
         ]);
     }
 }
